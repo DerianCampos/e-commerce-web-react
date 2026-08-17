@@ -1,24 +1,43 @@
 import { Card, Row, Col, Typography } from "antd";
-import { SafetyOutlined, ApiOutlined, CodeOutlined } from "@ant-design/icons";
+import {
+  ShoppingCartOutlined,
+  SafetyCertificateOutlined,
+  RocketOutlined,
+} from "@ant-design/icons";
 import styles from "./home-cta-section.module.scss";
 
 const { Title, Paragraph } = Typography;
 
 const features = [
   {
-    icon: <SafetyOutlined style={{ fontSize: 32, color: "var(--color-primary)" }} />,
-    title: "JWT Authentication",
-    description: "Secure login, token refresh, role-based guards, and password reset flows.",
+    icon: (
+      <ShoppingCartOutlined
+        style={{ fontSize: 32, color: "var(--color-primary)" }}
+      />
+    ),
+    title: "Easy Shopping",
+    description:
+      "Browse our curated catalog and add items to your cart in seconds.",
   },
   {
-    icon: <ApiOutlined style={{ fontSize: 32, color: "var(--color-primary)" }} />,
-    title: "REST API Ready",
-    description: "FastAPI backend with RTK Query integration, typed endpoints, and error handling.",
+    icon: (
+      <SafetyCertificateOutlined
+        style={{ fontSize: 32, color: "var(--color-primary)" }}
+      />
+    ),
+    title: "Secure Checkout",
+    description:
+      "Your payment information is protected with industry-standard encryption.",
   },
   {
-    icon: <CodeOutlined style={{ fontSize: 32, color: "var(--color-primary)" }} />,
-    title: "Clean Architecture",
-    description: "Feature-sliced design with Redux Toolkit, lazy routes, and design tokens.",
+    icon: (
+      <RocketOutlined
+        style={{ fontSize: 32, color: "var(--color-primary)" }}
+      />
+    ),
+    title: "Fast Delivery",
+    description:
+      "Get your orders delivered quickly and track them every step of the way.",
   },
 ];
 
@@ -26,7 +45,7 @@ const HomeCtaSection: React.FC = () => {
   return (
     <section className={styles.section}>
       <Title level={2} className={styles.sectionTitle}>
-        Everything You Need
+        Why Shop With Us
       </Title>
       <Row gutter={[24, 24]} justify="center">
         {features.map((feature) => (
