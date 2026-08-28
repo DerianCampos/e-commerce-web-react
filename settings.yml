@@ -1,8 +1,8 @@
 version: 1
 
 project:
-  name: template-web-react
-  root: /Users/alonso/Documents/Workspace/EndToEndLabCR/templates/template-web-react
+  name: e-commerce-web-react
+  root: /Users/deriancampos/GitHub/EndToEndLabCR/e-commerce/e-commerce-web-react
 
 defaults:
   agent: orchestrator

@@ -7,6 +7,5 @@ export const homeRoutes: RouteConfig[] = [
   {
     path: "/",
     element: HomePage,
-    guard: "public",
   },
 ];

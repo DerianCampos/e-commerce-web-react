@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
     <AntFooter className={styles.footer}>
       <div className={styles.inner}>
         <Text type="secondary" className={styles.text}>
-          &copy; {year} Template App
+          &copy; {year} E-Commerce
         </Text>
       </div>
     </AntFooter>

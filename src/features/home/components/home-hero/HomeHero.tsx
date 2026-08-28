@@ -1,6 +1,5 @@
-import { Button, Space, Typography } from "antd";
-import { ArrowRightOutlined, UserAddOutlined } from "@ant-design/icons";
-import { Link } from "react-router-dom";
+import { Button, Typography } from "antd";
+import { ShoppingOutlined } from "@ant-design/icons";
 import styles from "./home-hero.module.scss";
 
 const { Title, Paragraph } = Typography;
@@ -9,24 +8,15 @@ const HomeHero: React.FC = () => {
   return (
     <section className={styles.hero}>
       <Title level={1} className={styles.title}>
-        Template App
+        Welcome to E-Commerce
       </Title>
       <Paragraph className={styles.subtitle}>
-        A full-stack starter template with FastAPI backend, React frontend,
-        JWT authentication, and role-based access control. Ready to build on.
+        Discover amazing products at great prices. Built with React and ready
+        to grow.
       </Paragraph>
-      <Space size="middle">
-        <Link to="/register">
-          <Button type="primary" size="large" icon={<UserAddOutlined />}>
-            Create Account
-          </Button>
-        </Link>
-        <Link to="/login">
-          <Button size="large" icon={<ArrowRightOutlined />}>
-            Sign In
-          </Button>
-        </Link>
-      </Space>
+      <Button type="primary" size="large" icon={<ShoppingOutlined />}>
+        Shop Now
+      </Button>
     </section>
   );
 };
