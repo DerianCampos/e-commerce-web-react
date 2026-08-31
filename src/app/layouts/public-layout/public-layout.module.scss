@@ -1,15 +1,11 @@
 .layout {
   min-height: 100vh;
-  background: var(--color-surface-light);
+  background: #131313;
 }
 
 .content {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 24px;
   width: 100%;
-
-  @media (min-width: 768px) {
-    padding: 48px;
-  }
+  padding-top: 88px;
+  padding-left: 0;
+  padding-right: 0;
 }
