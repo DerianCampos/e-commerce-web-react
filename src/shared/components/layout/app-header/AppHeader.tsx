@@ -1,16 +1,70 @@
 import { Layout } from "antd";
+import {
+  MenuOutlined,
+  ShoppingCartOutlined,
+  UserOutlined,
+} from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import styles from "./app-header.module.scss";
 
 const { Header } = Layout;
 
+const navLinks = [
+  { label: "SHOP", to: "/", active: true },
+  { label: "ARTISTS", to: "#artists" },
+  { label: "COLLECTIONS", to: "#collections" },
+  { label: "SALE", to: "#sale" },
+];
+
 const AppHeader: React.FC = () => {
   return (
     <Header className={styles.header}>
-      <div className={styles.inner}>
+      {/* Desktop nav */}
+      <div className={styles.nav}>
         <Link to="/" className={styles.brand}>
-          E-Commerce
+          HORDE MERCH
         </Link>
+        <div className={styles.links}>
+          {navLinks.map((link) => (
+            <Link
+              key={link.label}
+              to={link.to}
+              className={`${styles.link} ${link.active ? styles.linkActive : ""}`}
+            >
+              {link.label}
+            </Link>
+          ))}
+        </div>
+        <div className={styles.actions}>
+          <button
+            type="button"
+            aria-label="Shopping cart"
+            className={styles.actionButton}
+          >
+            <ShoppingCartOutlined />
+          </button>
+          <button
+            type="button"
+            aria-label="Account"
+            className={styles.actionButton}
+          >
+            <UserOutlined />
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile nav */}
+      <div className={styles.navMobile}>
+        <Link to="/" className={styles.brandMobile}>
+          HORDE MERCH
+        </Link>
+        <button
+          type="button"
+          aria-label="Open menu"
+          className={styles.menuButton}
+        >
+          <MenuOutlined />
+        </button>
       </div>
     </Header>
   );

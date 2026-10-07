@@ -18,6 +18,12 @@
       "headers": {
         "CONTEXT7_API_KEY": "${CONTEXT7_API_KEY}"
       }
+    },
+    "stitch": {
+      "type": "remote",
+      "url": "https://stitch.googleapis.com/mcp",
+      "enabled": true,
+      "headers": {"X-Goog-Api-Key": "${STITCH_API_KEY}"}
     }
   }
 }

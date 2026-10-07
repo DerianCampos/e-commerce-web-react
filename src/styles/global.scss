@@ -1,22 +1,30 @@
 // ============================================================
 // Global Styles — CSS Custom Properties + Base Resets
-// Source: DESIGN.md
-// Note: @fontsource/inter is imported via main.tsx
+// Source: Stitch design system "Obsidian & Iron" (HORDE MERCH)
+// Note: Anton / Archivo Narrow / JetBrains Mono imported via main.tsx
 // ============================================================
 
-// ── CSS Custom Properties (Light) ───────────────────────────
+// ── CSS Custom Properties (Dark / Brutalist) ────────────────
 :root {
   // Colors
-  --color-primary: #0057c2;
-  --color-primary-light: #4a8fd9;
-  --color-primary-dark: #006ef2;
-  --color-surface-white: #ffffff;
-  --color-surface-light: #f9f9f9;
-  --color-surface-base: #eeeeee;
-  --color-surface-dark: #1a1a1a;
-  --color-text-primary: #1a1a1a;
-  --color-text-secondary: #666666;
-  --color-text-on-dark: #f0f0f0;
+  --color-primary: #8b0000;
+  --color-primary-hover: #ffb4a8;
+  --color-primary-dark: #6b0000;
+  --color-obsidian-black: #000000;
+  --color-surface-white: #1c1b1b;
+  --color-surface-light: #131313;
+  --color-surface-base: #4c4546; // outline-variant
+  --color-surface-dim: #0e0e0e;
+  --color-surface-container: #20201f;
+  --color-text-primary: #e5e2e1;
+  --color-text-secondary: #cfc4c5;
+  --color-text-faint: #988e90;
+  --color-text-on-dark: #ffffff;
+  --color-tertiary: #ffb4a8;
+  --color-outline: #988e90;
+  --color-outline-variant: #4c4546;
+  --color-paper-white: #ffffff;
+  --color-industrial-grey: #1a1a1a;
   --color-success: #52c41a;
   --color-warning: #faad14;
   --color-error: #ff4d4f;
@@ -30,40 +38,43 @@
   --spacing-xl: 2rem;
   --spacing-2xl: 3rem;
   --spacing-3xl: 4rem;
+  --gutter: 16px;
+  --margin-desktop: 48px;
+  --margin-mobile: 16px;
 
-  // Radius
-  --radius-sm: 8px;
-  --radius-md: 16px;
-  --radius-lg: 24px;
+  // Radius — strictly sharp
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
 
-  // Shadows
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.08);
-  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.06);
-  --shadow-card-hover: 0 4px 16px rgba(0, 87, 194, 0.12);
+  // Shadows — no soft shadows; hard offset glows only
+  --shadow-sm: 0 0 0 rgba(0, 0, 0, 0);
+  --shadow-md: 0 0 0 rgba(0, 0, 0, 0);
+  --shadow-lg: 0 0 0 rgba(0, 0, 0, 0);
+  --shadow-card: 0 0 0 rgba(0, 0, 0, 0);
+  --shadow-card-hover: 0 0 20px rgba(207, 196, 197, 0.15);
+  --shadow-glow-red: 0 0 15px rgba(139, 0, 0, 0.5);
+  --shadow-glow-red-hover: 0 0 25px rgba(255, 180, 168, 0.8);
 
   // Typography
-  --font-family: "InterVariable", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-family-code: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  --font-family: "Archivo Narrow", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-family-headline: "Anton", "Archivo Narrow", sans-serif;
+  --font-family-label: "JetBrains Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
 }
 
-// ── Dark Theme Overrides ────────────────────────────────────
+// ── Dark theme uses the same brutalist palette ──────────────
 [data-theme="dark"] {
-  --color-primary: #4a8fd9;
-  --color-primary-light: #6ba8e8;
-  --color-primary-dark: #3a7ac4;
-  --color-surface-white: #1e1e1e;
-  --color-surface-light: #141414;
-  --color-surface-base: #2d2d2d;
-  --color-text-primary: #e8e8e8;
-  --color-text-secondary: #a0a0a0;
+  --color-primary: #ffb4a8;
+  --color-primary-hover: #e5e2e1;
+  --color-primary-dark: #8b0000;
+  --color-surface-white: #1c1b1b;
+  --color-surface-light: #131313;
+  --color-surface-base: #4c4546;
+  --color-text-primary: #e5e2e1;
+  --color-text-secondary: #cfc4c5;
+  --color-text-faint: #988e90;
 
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
-  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.3);
-  --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.4);
-  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.3);
-  --shadow-card-hover: 0 4px 16px rgba(74, 143, 217, 0.2);
+  --shadow-card-hover: 0 0 20px rgba(207, 196, 197, 0.15);
 }
 
 // ── CSS Reset ───────────────────────────────────────────────
@@ -88,19 +99,36 @@ body {
   line-height: 1.5;
   color: var(--color-text-primary);
   background-color: var(--color-surface-light);
+  position: relative;
+}
+
+// ── Gritty film-grain overlay (≈5% opacity) ─────────────────
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  pointer-events: none;
+  z-index: 9999;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-family);
+  font-family: var(--font-family-headline);
+  font-weight: 400;
+  text-transform: uppercase;
   color: var(--color-text-primary);
 }
 
 a {
-  color: var(--color-primary);
+  color: var(--color-tertiary);
   text-decoration: none;
 
   &:hover {
-    text-decoration: underline;
+    text-decoration: none;
   }
 }
 
@@ -121,5 +149,41 @@ img {
 
 ::-webkit-scrollbar-thumb {
   background: var(--color-surface-base);
-  border-radius: 3px;
+  border-radius: 0;
+}
+
+// ── Signature brutalist type utilities ──────────────────────
+.text-shadow-heavy {
+  text-shadow: 4px 4px 0 rgba(0, 0, 0, 1);
+}
+
+// ── Shared scroll-reveal behavior ───────────────────────────
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

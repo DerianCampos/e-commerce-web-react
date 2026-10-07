@@ -1,13 +1,15 @@
+import { Fragment } from "react";
 import { HomeHero } from "@/features/home/components/home-hero";
-import { HomeCtaSection } from "@/features/home/components/home-cta-section";
-import styles from "./home.module.scss";
+import { HomeProducts } from "@/features/home/components/home-products";
+import { HomeArtistSpotlight } from "@/features/home/components/home-artist-spotlight";
 
 const HomePage: React.FC = () => {
   return (
-    <div className={styles.page}>
+    <Fragment>
       <HomeHero />
-      <HomeCtaSection />
-    </div>
+      <HomeProducts />
+      <HomeArtistSpotlight />
+    </Fragment>
   );
 };
 
