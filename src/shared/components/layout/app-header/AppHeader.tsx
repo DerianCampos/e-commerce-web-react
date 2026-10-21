@@ -4,19 +4,31 @@ import {
   ShoppingCartOutlined,
   UserOutlined,
 } from "@ant-design/icons";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import styles from "./app-header.module.scss";
 
 const { Header } = Layout;
 
 const navLinks = [
-  { label: "SHOP", to: "/", active: true },
-  { label: "ARTISTS", to: "#artists" },
+  { label: "SHOP", to: "/" },
+  { label: "ARTISTS", to: "/artists" },
   { label: "COLLECTIONS", to: "#collections" },
   { label: "SALE", to: "#sale" },
 ];
 
 const AppHeader: React.FC = () => {
+  const location = useLocation();
+
+  const isActive = (to: string) => {
+    if (to.startsWith("#")) {
+      return false;
+    }
+    if (to === "/") {
+      return location.pathname === "/";
+    }
+    return location.pathname.startsWith(to);
+  };
+
   return (
     <Header className={styles.header}>
       {/* Desktop nav */}
@@ -29,7 +41,7 @@ const AppHeader: React.FC = () => {
             <Link
               key={link.label}
               to={link.to}
-              className={`${styles.link} ${link.active ? styles.linkActive : ""}`}
+              className={`${styles.link} ${isActive(link.to) ? styles.linkActive : ""}`}
             >
               {link.label}
             </Link>
