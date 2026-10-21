@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Button } from "antd";
-import { useScrollReveal } from "@/features/home/hooks/use-scroll-reveal";
+import { useScrollReveal } from "@/shared/hooks";
 import { products } from "./home-products.data";
 import styles from "./home-products.module.scss";
 
