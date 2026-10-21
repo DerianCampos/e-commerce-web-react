@@ -1,0 +1,1 @@
+export { default as ArtistsHero } from "./ArtistsHero";
