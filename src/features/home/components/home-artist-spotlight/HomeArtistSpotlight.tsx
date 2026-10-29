@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Button } from "antd";
-import { useScrollReveal } from "@/features/home/hooks/use-scroll-reveal";
+import { useScrollReveal } from "@/shared/hooks";
 import { artists } from "./home-artist-spotlight.data";
 import styles from "./home-artist-spotlight.module.scss";
 
