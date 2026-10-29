@@ -6,7 +6,9 @@ import {
   BAND_IDS,
   BANDS,
   getBandMatch,
+  type Band,
   type BandId,
+  type Tee,
 } from "@/features/artists/data/artists.data";
 
 const DEFAULT_BAND_ID: BandId = "death-weaver";
@@ -35,7 +37,7 @@ const ArtistsPage: React.FC = () => {
   };
 
   const allTees = useMemo(() => {
-    const tees: Array<{ tee: any; band: any; bandName: string }> = [];
+    const tees: Array<{ tee: Tee; band: Band; bandName: string }> = [];
     let count = 0;
     for (const id of BAND_IDS) {
       for (const tee of BANDS[id].tshirts.slice(0, 2)) {

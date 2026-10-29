@@ -22,7 +22,7 @@ const ADDED_TEXT = "ADDED TO CART";
  * size picker (L selected by default when available) and an
  * ADD TO CART micro-interaction.
  */
-const TeeCard: React.FC<TeeCardProps> = ({ tee, bandName, band }) => {
+const TeeCard: React.FC<TeeCardProps> = ({ tee, bandName }) => {
   const defaultSize: TeeSize = tee.sizes.includes("L") ? "L" : tee.sizes[0];
   const [selectedSize, setSelectedSize] = useState<TeeSize>(defaultSize);
   const [added, setAdded] = useState(false);
