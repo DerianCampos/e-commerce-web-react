@@ -15,9 +15,7 @@ interface BandSearchProps {
  */
 const BandSearch: React.FC<BandSearchProps> = ({
   bandQuery,
-  activeBandId,
   onBandQueryChange,
-  onQuickSelect,
   onReset,
 }) => {
   const hasQuery = bandQuery.trim().length > 0;
